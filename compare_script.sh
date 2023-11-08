@@ -13,7 +13,7 @@ while IFS= read -r line; do
   #echo "$line" if it begins with tcp or udp else skip to next line
   if [[ $line != "" ]] && [[ $line != tcp* ]] && [[ $line != udp* ]]; then
     if [[ $HEADER == "" ]]; then
-      # Extract the time and time from the last two columna of $line
+      # Extract the time and time from the last two columns of $line
       HEADER=$(echo "$line" | awk '{print $5, $6}')
     fi
     echo "HEADER:$HEADER"
@@ -33,7 +33,7 @@ while IFS= read -r line; do
     # extract the IP and PORT accordingly
     if [[ $REMOTE_IP_PORT == *[* ]]; then
       REMOTE_IP=$(echo "$REMOTE_IP_PORT" | awk -F'[][]' '{print $2}')
-      REMOTE_PORT=$(echo "$REMOTE_IP_PORT" | awk -F'[][]' '{print $4}')
+      REMOTE_PORT=$(echo "$REMOTE_IP_PORT" | awk -F'[][]' '{print $3}' | awk -F':' '{print $2}')
     else
       REMOTE_IP=$(echo "$REMOTE_IP_PORT" | awk -F':' '{print $1}')
       REMOTE_PORT=$(echo "$REMOTE_IP_PORT" | awk -F':' '{print $2}')
@@ -54,7 +54,7 @@ while IFS= read -r line; do
 
       # append the IP address and process name to a log file with a timestamp formatted as YYYY-MM-DD-HH
       # echo "$HEADER, $REMOTE_IP, $PROCESS" >> /var/log/tor_exit_node_hits.log
-      echo "$HEADER, $REMOTE_IP, $PROCESS" >> tor_exit_node_hits$(date +%Y-%m-%d-%H).log
+      echo "$HEADER, $REMOTE_IP, $PROCESS" >> tor_exit_node_hits-$(date +%Y-%m-%d-%H).log
     else
       echo "IP address $REMOTE_IP is not in the TOR exit tor_exit_list"
     fi
