@@ -1,4 +1,5 @@
 #!/bin/bash
+#run with: watch -n 1 ./test.sh
 
 #make sure the list of tor exit nodes is up to date
 TOR_EXIT_LIST="tor_exit_list.txt"
