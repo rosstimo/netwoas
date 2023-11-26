@@ -2,6 +2,7 @@
 
 # Define the URL of the SyncThing relay list
 SYNCTHING_RELAY_LIST_URL="https://raw.githubusercontent.com/elliotwutingfeng/SyncthingRelayServerIPs/main/ips.txt"
+# SYNCTHING_RELAY_LIST_URL="https://relays.syncthing.net/relays.json"
 # Define the path for the list to be stored
 SYNCTHING_RELAY_LIST_PATH="syncthing_relay_list.txt"
 

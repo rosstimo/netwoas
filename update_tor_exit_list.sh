@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the URL of the Tor exit node list
-TOR_EXIT_LIST_URL="https://www.dan.me.uk/torlist/?exit"
+TOR_EXIT_LIST_URL="https://www.dan.me.uk/torlist/?exit" # full 
 
 # Define the path for the list to be stored
 TOR_EXIT_LIST_PATH="tor_exit_list.txt"
